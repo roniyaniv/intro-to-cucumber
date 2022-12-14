@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@wdio/cucumber-framework";
 
-Given("I am on the google homepage", () => {
+Given("I am on the google homepage", async () => {
   browser.url("/?hl=en") // we need the english home page
 })
 
@@ -19,7 +19,7 @@ Then("I get results with {string}", async (word) =>{
     if (text == ''){
       continue
     }else{
-      expect(text.toLowerCase()).toHaveTextContaining('cucumber')
+      expect(text.toLowerCase()).toHaveTextContaining(word)
     }
   }
   
