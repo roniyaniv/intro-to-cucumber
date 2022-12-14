@@ -1,14 +1,6 @@
-import { Given, When, Then } from "@wdio/cucumber-framework";
+import { Given, When, Then } from "@wdio/cucumber-framework"
+import { navToPage, searchDressTypeBy } from "../actions/actions.js"
 
-Given("I am on the google homepage", async () => {
-  browser.url("/?hl=en") // we need the english home page
-})
-
-When("I search for {string}", async (word) => {
-  console.log(await $('form input').getComputedLabel())
-  await $('form input').setValue(word)
-  await $('aria/Google Search').click()
-})
 
 Then("I get results with {string}", async (word) =>{
   
@@ -23,4 +15,13 @@ Then("I get results with {string}", async (word) =>{
     }
   }
   
+})
+
+
+Given('the browser is at the {string} page', async (page) => {
+  await navToPage(page)
+})
+
+When('the user searches for {string}', async (s) => {
+  await searchDressTypeBy(s)
 })
