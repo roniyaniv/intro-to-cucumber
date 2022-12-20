@@ -8,9 +8,9 @@ Feature: Dress Search
   Scenario: Search for a type that does not exist
     When the user searches for "floral"
     Then no products are listed
-    And a no results error message is shown
+    And a "no results" error message is shown
 
   Scenario: Search for a type that exists
-    When the user searches for "striped"
+    When the user searches for "hoodie"
     Then products are listed
-    And search results show products related to "striped"
+    And search results show products related to "hoodie"

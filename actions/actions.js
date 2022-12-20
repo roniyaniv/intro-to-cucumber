@@ -1,5 +1,5 @@
+import Search from "../pages/Search"
 
-import Key from 'webdriverio'
 
 export function navToPage(page){
   switch(page){
@@ -14,7 +14,16 @@ export function navToPage(page){
   }
 }
 
-export async function searchDressTypeBy(s){
-  await $('#search').setValue(s)
-  await browser.keys('Enter')
+export async function checkProducts(searchTerm){
+
+  const resultsListArray = await Search.resultsList
+  console.log("Elements array length: " + resultsListArray.length)
+
+  for (let i of resultsListArray){
+    let productText = await i.getText()
+    expect(productText.trim().toLowerCase()).toContain(searchTerm)
+
+  }
+
 }
+
