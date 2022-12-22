@@ -1,3 +1,4 @@
+import HeaderMenu from "../pages/HeaderMenu"
 import Search from "../pages/Search"
 
 
@@ -22,8 +23,13 @@ export async function checkProducts(searchTerm){
   for (let i of resultsListArray){
     let productText = await i.getText()
     expect(productText.trim().toLowerCase()).toContain(searchTerm)
-
   }
-
 }
 
+export async function checkPageTitle(pageTitle){
+
+  //console.log('pageTitleToCheck: ' + pageTitle)
+  const pageTitleElem = (await browser.getTitle()).toString()
+  // console.log('pageTitleElem: ' + pageTitleElem)
+  expect(pageTitleElem).toContain(pageTitle)
+}

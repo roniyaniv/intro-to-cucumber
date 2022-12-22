@@ -1,6 +1,6 @@
-Feature: Dress Search
+Feature: Product Search
 
-  As a user, I want to be able to search for dresses on https://magento.softwaretestingboard.com by type so I can purchase one
+  As a user, I want to be able to search for products on https://magento.softwaretestingboard.com so I can purchase one
 
   Background:
     Given the browser is at the "Home" page

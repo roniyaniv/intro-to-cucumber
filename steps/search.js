@@ -3,10 +3,6 @@ import * as actions from "../actions/actions.js"
 import Search from "../pages/Search.js"
 
 
-Given('the browser is at the {string} page', async (page) => {
-  await actions.navToPage(page)
-})
-
 When('the user searches for {string}', async (s) => {
   await Search.searchFor(s)
 })
